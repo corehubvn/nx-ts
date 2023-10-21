@@ -1,16 +1,37 @@
-# Codehub
+# NX-TS
 
-## Code Convention
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-This repository uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit messages. This allows for automatic changelog generation and semantic versioning.
+This repository uses [Nx](https://nx.dev) as a workspace manager. Nx is a set of extensible dev tools for monorepos, which helps you develop like Google, Facebook, and Microsoft. We create **a minimal, integrated repo style with typescript preset** as a starting point for any TypeScript-based projects.
 
-The commit messages are validated using [husky](https://typicode.github.io/husky/#/) and [lint-staged](https://github.com/lint-staged/lint-staged), are linted using [commitlint](https://commitlint.js.org/#/), and are formatted using [commitizen](https://github.com/commitizen/cz-cli).
+```bash
+npx create-nx-workspace@latest nx-ts --preset=ts
+```
 
-There are 3 Git hooks that are used to enforce the commit convention:
+This repository also uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) as a commit message convention. Conventional Commits is a specification for adding human and machine readable meaning to commit messages. Using the convention leads to more readable messages that are easy to follow when looking through the project history. Also, it enables generating CHANGELOGs automatically.
 
-- `pre-commit` - Runs `lint-staged` to fix lint errors and format files that are staged for commit automatically.
-- `commit-msg` - Runs `commitlint` to validate commit messages.
-- `prepare-commit-msg` - Runs `commitizen` to format commit messages.
+## What is included?
+
+- [Nx](https://nx.dev) as a workspace manager
+- [TypeScript](https://www.typescriptlang.org/) as a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
+- [Prettier](https://prettier.io/) as a code formatter.
+- [Commitlint](https://commitlint.js.org/#/) as a commit message linter.
+- [Commitizen](https://github.com/commitizen/cz-cli) as a commit message formatter.
+- [Husky](https://typicode.github.io/husky/#/) as a Git hook.
+- [Lint-staged](https://github.com/lint-staged/lint-staged) as a pre-commit linter.
+
+### Convention
+
+There are 3 Git hooks that are used to enforce the convention:
+
+- `pre-commit` - Automatically runs `lint-staged` to fix lint errors and format files that are staged for commit.
+- `commit-msg` - Automatically runs `commitlint` to validate commit messages.
+- `prepare-commit-msg` - Automatically runs `commitizen` to format commit messages.
+
+## Getting Started
+
+You could quickly create a new repo from this template by clicking the `Use this template` button on the top right corner of this page.
+See more: [Creating a repository from a template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)
 
 To commit, run the below command:
 
@@ -36,8 +57,4 @@ Follow the prompts to create your commit message. This will ensure that the comm
 (Move up and down to reveal more choices)
 ```
 
-If you want to skip the prompts, you can run `git commit -m "your commit message"`. This will skip the `commitlint` and `commitizen` checks.
-
-If you want to skip the commitlint check, but still use commitizen, you can run `npm run commit -- --no-verify`.
-
-If you want to skip the commitizen check, but still use commitlint, you can run `git commit -m "your commit message" --no-verify`.
+Happy coding! 🎉🙌

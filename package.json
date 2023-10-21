@@ -1,5 +1,5 @@
 {
-  "name": "@codehub/source",
+  "name": "@nx-ts/source",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
