@@ -10,7 +10,6 @@ on:
       - 'infra/**'
       - '*.md'
 
-# Ref: https://nx.dev/nx-cloud/recipes/set-up/monorepo-ci-github-actions
 jobs:
   main:
     runs-on: ubuntu-latest
@@ -21,14 +20,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
       - name: Install Dependencies
         uses: ./.github/actions/install_deps
 
-      - uses: nrwl/nx-set-shas@v3
-      # This line is needed for nx affected to work when CI is running on a PR
-      - run: git branch --track main origin/main
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v3
 
       - run: npx nx format:check
       - run: npx nx affected -t lint,test,build --parallel=3
